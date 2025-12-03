@@ -27,7 +27,7 @@ void MapActivate()
 {
 	@cvar_AdminOnlyEx = g_EngineFuncs.CVarGetPointer("lt_parachute_admin_only");
 }
-HookReturnCode MapChange()
+HookReturnCode MapChange(const string& in szNextMap)
 {
 	RemoveAllEntities();
 	return HOOK_CONTINUE;
