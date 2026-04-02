@@ -104,6 +104,8 @@ void ParachuteCmd(CBasePlayer@ nPlayer)
 						g_EntityFuncs.SetModel(@prcEnts[id], model);
 						prcEnts[id].pev.movetype = MOVETYPE_FOLLOW;
 						@prcEnts[id].pev.aiment = @nPlayer.edict();
+						prcEnts[id].pev.solid = SOLID_NOT;
+						prcEnts[id].pev.flags |= FL_NOTARGET;
 					}
 				}
 			}
