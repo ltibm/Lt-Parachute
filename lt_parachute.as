@@ -29,22 +29,22 @@ void MapActivate()
 }
 HookReturnCode MapChange(const string& in szNextMap)
 {
-	RemoveAllEntities();
+	RemoveAllEntities(false);
 	return HOOK_CONTINUE;
 }
-void RemoveAllEntities()
+void RemoveAllEntities(bool delete = true)
 {
 	for(uint i = 0; i < prcEnts.length(); i++)
 	{
-		RemoveEntity(i);
-
+		RemoveEntity(i, delete);
 	}
 }
-void RemoveEntity(uint index)
+void RemoveEntity(uint index, bool delete = true)
 {
 	if(prcEnts[index] !is null)
 	{
-		g_EntityFuncs.Remove(@prcEnts[index]);
+		if(delete)
+			g_EntityFuncs.Remove(@prcEnts[index]);
 		@prcEnts[index] = null;
 	}
 }
